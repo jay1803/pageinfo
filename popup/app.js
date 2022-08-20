@@ -7,8 +7,6 @@ function getActiveTab() {
   });
 }
 
-
-
 getActiveTab().then((tabs) => {
   const tab = tabs[0]
   const title = tab.title
