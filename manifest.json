@@ -14,10 +14,5 @@
         "default_icon": "icons/pageinfo-32.png",
         "default_title": "Pageinfo",
         "default_popup": "popup/app.html"
-    },
-    "web_accessible_resources": [
-        "beasts/frog.jpg",
-        "beasts/turtle.jpg",
-        "beasts/snake.jpg"
-    ]
+    }
 }
