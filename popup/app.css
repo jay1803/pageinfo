@@ -1,0 +1,9 @@
+#content {
+    margin-top:10px;
+    text-align: right;
+}
+#content button {
+    display: inline-block;
+    width: 80px;
+    height: 24px;
+}
