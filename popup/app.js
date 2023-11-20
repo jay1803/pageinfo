@@ -1,33 +1,33 @@
-const mainElement = document.querySelector("#main")
+const mainElement = document.querySelector("#main");
 
-function getActiveTab() {
-  return browser.tabs.query({
-    active: true,
-    currentWindow: true
+function getMainContent() {
+  return document.querySelector("meta[name=description]").textContent;
+}
+
+async function getCurrentTabData() {
+  let queryOptions = { active: true, lastFocusedWindow: true };
+  // `tab` will either be a `tabs.Tab` instance or `undefined`.
+  const [tab] = await chrome.tabs.query(queryOptions);
+
+  const title = tab.title;
+  const url = tab.url;
+
+  mainElement.textContent = `[[${url}][${title}]]`;
+
+  const results = await chrome.scripting.executeScript({
+    target: { tabId: tab.id },
+    function: getMainContent,
   });
+
+  if (results.length > 0) {
+    mainElement.textContent += `\n${results[0].result}`;
+  }
 }
 
-getActiveTab().then((tabs) => {
-  const tab = tabs[0]
-  const title = tab.title
-  const url = tab.url
+getCurrentTabData();
 
-  mainElement.textContent = `[[${url}][${title}]]`
-})
-
-function getPageDescription() {
-  return browser.tabs.executeScript({
-    code: "document.querySelector('meta[name=description]').content"
-  })
-}
-
-getPageDescription().then((results) => {
-  const description = results[0]
-  mainElement.textContent += `\n${description}`
-})
-
-const copyButton = document.querySelector("#content button")
+const copyButton = document.querySelector("#content button");
 copyButton.addEventListener("click", () => {
-  const content = mainElement.textContent
-  navigator.clipboard.writeText(content)
-})
+  const content = mainElement.textContent;
+  navigator.clipboard.writeText(content);
+});

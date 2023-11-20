@@ -4,6 +4,7 @@
   "version": "1.0",
   "author": "maxOS",
   "action": {
+    "default_title": "Pageinfo",
     "default_popup": "popup/app.html",
     "default_icon": {
       "32": "icons/pageinfo-32.png",
@@ -15,10 +16,6 @@
   "icons": {
     "48": "icons/pageinfo-48.png"
   },
-  "permissions": ["activeTab"],
-  "browser_action": {
-    "default_icon": "icons/pageinfo-32.png",
-    "default_title": "Pageinfo",
-    "default_popup": "popup/app.html"
-  }
+  "permissions": ["activeTab", "scripting"],
+  "host_permissions": ["http://*/*", "https://*/*"]
 }
