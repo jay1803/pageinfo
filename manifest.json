@@ -1,18 +1,24 @@
 {
-    "manifest_version": 2,
-    "name": "PageInfo",
-    "version": "1.0",
-    "description": "Retrieve current page info as OrgMode format.",
-    "homepage_url": "https://github.com/jay1803/pageinfo",
-    "icons": {
-        "48": "icons/pageinfo-48.png"
-    },
-    "permissions": [
-        "activeTab"
-    ],
-    "browser_action": {
-        "default_icon": "icons/pageinfo-32.png",
-        "default_title": "Pageinfo",
-        "default_popup": "popup/app.html"
+  "manifest_version": 3,
+  "name": "PageInfo",
+  "version": "1.0",
+  "author": "maxOS",
+  "action": {
+    "default_popup": "popup/app.html",
+    "default_icon": {
+      "32": "icons/pageinfo-32.png",
+      "48": "icons/pageinfo-48.png"
     }
+  },
+  "description": "Retrieve current page info as OrgMode format.",
+  "homepage_url": "https://github.com/jay1803/pageinfo",
+  "icons": {
+    "48": "icons/pageinfo-48.png"
+  },
+  "permissions": ["activeTab"],
+  "browser_action": {
+    "default_icon": "icons/pageinfo-32.png",
+    "default_title": "Pageinfo",
+    "default_popup": "popup/app.html"
+  }
 }
